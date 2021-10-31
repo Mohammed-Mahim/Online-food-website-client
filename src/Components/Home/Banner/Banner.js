@@ -9,7 +9,7 @@ const Banner = () => {
                    
                     <h1 className="text-bolder my-5"> FAST FOOD RESTAURANTS AND ONLINE FOOD ORDERING SERVICE WEBSITES</h1>
                  <div className="my-3">
-                 <button className="btn btn-outline-success me-4 w-100 "><small style={{fontSize:"20px"}} className="fw-bold ">Order food</small></button>
+                 <button className="btn btn-outline-danger me-4 w-50 "><small style={{fontSize:"20px"}} className="fw-bold ">Order food</small></button>
                     
                  </div>
                 </div>

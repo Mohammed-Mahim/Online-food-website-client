@@ -5,6 +5,7 @@ import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home/Home';
 import Offer from './Components/Home/Home/Offer/Offer';
+import Login from './Components/Login/Login';
 
 
 
@@ -26,6 +27,9 @@ function App() {
           <Route path="/offer">
             <Offer></Offer>
           </Route>
+          <Route exact path="/login">
+              <Login/>
+            </Route>
         </Switch>
         <Footer/>
       </Router>

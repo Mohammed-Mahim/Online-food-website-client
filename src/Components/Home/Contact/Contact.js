@@ -4,7 +4,7 @@ const Contact = () => {
     return (
         <div className="container" id="contact">
             <div className="d-flex align-items-center justify-content-center py-5">
-                <h1 className="text-success fw-bold">Contact Us</h1>
+                <h1 className="text-danger fw-bold">Contact Us</h1>
             </div>
             <div className="row">
                <div className="col-md-6 p-5">

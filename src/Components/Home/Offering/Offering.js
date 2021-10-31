@@ -2,9 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Offer from '../Home/Offer/Offer';
-
-
-import './Offering.css'
+import './Offering.css';
 
 const Offering = () => {
     const [users, setUsers] = useState([])
@@ -15,22 +13,21 @@ const Offering = () => {
         .then(data => setUsers(data))
     },[])
     return (
-        <div>
-            <h4>this is offering page</h4>
-            <h3>users length {users.length}</h3>
-        <div className="offering">
+        <div className="container">
+            
+            <h1 className="text-center text-danger my-3">Select Your Best Food <br /> For Order 
+                 </h1>
+        <div className="offering row">
 
         {
-            users.map(product => <Offer
+        users.map(product => <Offer
             key={product.name}
             product={product}
             
-            ></Offer>)
+        ></Offer>)
         }
-    <h4>hello</h4>
-        </div>
-          
-           
+    
+        </div>  
         </div>
     );
 };

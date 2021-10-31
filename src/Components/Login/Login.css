@@ -1,0 +1,22 @@
+/* login container style */
+.login {
+    background-color: #06cf7bb6;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .inputs {
+    width: 200px;
+  }
+  .buttons button {
+    margin: 10px 0;
+  }
+  .inputs input {
+    margin: 0 auto;
+    text-align: center;
+    padding: 7px;
+    margin: 10px 0;
+    border: 1px solid gray;
+  }

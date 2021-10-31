@@ -5,3 +5,13 @@
 
   
 }
+
+
+
+@media  (max-width: 688px) {
+    .offering{
+        
+    grid-template-columns: repeat(1, 1fr);
+    
+    }
+}

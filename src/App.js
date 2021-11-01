@@ -6,6 +6,7 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home/Home';
 import Offer from './Components/Home/Home/Offer/Offer';
 import Login from './Components/Login/Login';
+import AuthProvider from './Context/AuthProvider';
 
 
 
@@ -13,6 +14,7 @@ import Login from './Components/Login/Login';
 function App() {
   return (
     <div>
+      <AuthProvider>
       <Router>
         <Header>
           
@@ -33,6 +35,8 @@ function App() {
         </Switch>
         <Footer/>
       </Router>
+      </AuthProvider>
+      
 
 
     </div>

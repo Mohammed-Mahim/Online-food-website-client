@@ -3,7 +3,7 @@ import React from 'react';
 const Banner = () => {
     return (
     <div>
-            <div className="container" id="home">
+            <div className="container" >
             <div className="row py-5">
                 <div className="col-md-6 px-5 py-5">
                    
@@ -17,6 +17,7 @@ const Banner = () => {
                     <img className="img-fluid rounded" src="https://lafka.althemist.com/wp-content/uploads/2021/06/vector-lafka-landing2.png" alt="" />
                 </div>
             </div>
+            
             <div className="row py-5">
             <div className="col-md-6 p-3 ">
                     <img className="img-fluid rounded" src="https://lafka.althemist.com/wp-content/uploads/2021/06/vector-lafka-landing1.png" alt="" />

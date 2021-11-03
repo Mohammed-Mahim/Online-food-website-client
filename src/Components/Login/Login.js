@@ -1,9 +1,7 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
-
-
-
+import "./login.css"
 
 const Login = () => {
     const {handleSubmit, isLogin, handleEmailChange, handlePasswordChange, handleNameChange, checkedIsLogin, signInUsingGoogle, handleResetPass, error, setUser, setError, setIsLoading,processToLogin, email, password, processToRegister} = useAuth();

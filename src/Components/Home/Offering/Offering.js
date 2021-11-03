@@ -1,34 +1,45 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Offer from '../Home/Offer/Offer';
+import { Link } from 'react-router-dom';
+
 import './Offering.css';
 
 const Offering = () => {
-    const [users, setUsers] = useState([])
+    const [services, setServices] = useState([])
+   
 
     useEffect(()=>{
-        fetch('item.json')
+        fetch('http://localhost:5000/products')
         .then(res => res.json())
-        .then(data => setUsers(data))
+        .then(data => setServices(data))
     },[])
     return (
-        <div className="container">
-            
-            <h1 className="text-center text-danger my-3">Select Your Best Food <br /> For Order 
-                 </h1>
-        <div className="offering row">
-
-        {
-        users.map(product => <Offer
-            key={product.name}
-            product={product}
-            
-        ></Offer>)
-        }
-    
-        </div>  
+        <div className="p-3">
+        <h1 className="text-center">All Product </h1>
+        <div className="services">
+          <div className="row container">
+            {services?.map((pd) => (
+              <div className="col-md-4 col-sm-12">
+                <div className="service border border p-3">
+                  <div className="services-img ">
+                    <img className="w-100" src={pd?.img} alt="" />
+                  </div>
+  
+                  <h6>{pd?.name}</h6>
+                  <p>{pd?.des}</p>
+                  
+                  <Link to={`/offering/${pd._id}`}>
+                    <button className="btn btn-success">Buy Now</button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
+    
+        
     );
 };
 

@@ -1,28 +1,73 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router';
+import useAuth from '../../../../hooks/useAuth';
 
+import "./Offer.css";
 
-const Offer = ({product}) => {
-    // console.log(props);
-    const {img, name, des} = product;
-    return (
-        <div>
-            <div className="card" >
-            <img width="100%" src={img} className="card-img-top" alt="..."/>
-            <div className="card-body">
-                <h3 className="card-title">{name}</h3>
-                <p className="card-text">{des}</p>
-                <Link to={`offering/${product._id}`}>
-                <button className="btn btn-outline-danger px-5 m-auto" > Buy Now </button>
-            </Link>
-            </div>
-            </div>
+const Offer = () => {
+    const {serviceId} = useParams();
+    const [services, setService] = useState({});
+    const{user} = useAuth();
 
-            
-           
-            </div>
+    useEffect(()=>{
+        fetch(`http://localhost:5000/products/${serviceId}`)
+        .then(res=> res.json())
+        .then(data => setService(data))
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
+    console.log(services);
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
+    const onSubmit = data => {
+       
+        data.packageName = services.name;
         
-    
+      
+        data.status = "pending";
+        fetch('http://localhost:5000/orders',{
+            method:"POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(result => {
+            if(result.insertedId){
+                alert('Package Added');
+                reset(); 
+            }
+        })
+    }
+    return (
+        <div className="row book__container">
+            <div className="col-md-8 col-sm-12 package__details">
+                <h1>{services?.name}</h1>
+                <div className="service__img">
+                    <img className="img-fluid" src={services?.img} alt="" />
+                </div>
+                <p>{services?.des}</p>
+            </div>
+            <div className="col-md-4 col-sm-12 form__container">
+                <h4>Submit this form to Order FOOD</h4>
+            <form onSubmit={handleSubmit(onSubmit)}>
+            
+            <input defaultValue={user?.displayName} placeholder="Your Name" {...register("name")} /> <br />
+            <input placeholder="Your Email" {...register("email")} /> <br />
+            <label htmlFor="from">From</label> <br />
+            <input type="date" {...register("from")} /> <br />
+            <label htmlFor="to">To</label> <br />
+            <input type="date" {...register("to")} /> <br />
+            <input placeholder="Your Mobile No" {...register("mobile", { required: true })} /> <br />
+            {errors.exampleRequired && <span>This field is required</span>}
+            
+            <div className="text-center">
+                <input type="submit" />
+            </div>
+            </form>
+            </div>
+        </div>
     );
 };
 

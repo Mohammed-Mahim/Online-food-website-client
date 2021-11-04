@@ -4,28 +4,27 @@ import { useParams } from 'react-router';
 import useAuth from '../../../../hooks/useAuth';
 
 import "./Offer.css";
-
 const Offer = () => {
     const {serviceId} = useParams();
     const [services, setService] = useState({});
     const{user} = useAuth();
 
+    console.log(serviceId);
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/${serviceId}`)
+        fetch(`https://protected-taiga-21434.herokuapp.com/singleProducts/${serviceId}`)
         .then(res=> res.json())
         .then(data => setService(data))
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
+    
     console.log(services);
     const { register, handleSubmit,reset, formState: { errors } } = useForm();
     const onSubmit = data => {
        
         data.packageName = services.name;
-        
-      
         data.status = "pending";
-        fetch('http://localhost:5000/orders',{
+        fetch('https://protected-taiga-21434.herokuapp.com/products',{
             method:"POST",
             headers: {
                 'content-type': 'application/json'
@@ -54,7 +53,7 @@ const Offer = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
             
             <input defaultValue={user?.displayName} placeholder="Your Name" {...register("name")} /> <br />
-            <input placeholder="Your Email" {...register("email")} /> <br />
+            <input defaultValue={user?.email} placeholder="Your Email" {...register("email")} /> <br />
             <label htmlFor="from">From</label> <br />
             <input type="date" {...register("from")} /> <br />
             <label htmlFor="to">To</label> <br />

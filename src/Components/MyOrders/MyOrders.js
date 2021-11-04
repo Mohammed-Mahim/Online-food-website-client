@@ -10,7 +10,7 @@ const MyOrders = () => {
     const [isCanceled, setIsCanceled] = useState(null);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/products/orders')
+        fetch('https://protected-taiga-21434.herokuapp.com/products/orders')
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -18,7 +18,7 @@ const MyOrders = () => {
     },[isCanceled]);
 
     const handleCancel = id =>{
-        fetch(`http://localhost:5000/products/orders/${id}`,{
+        fetch(`https://protected-taiga-21434.herokuapp.com/products/orders/${id}`,{
             method:"DELETE",
         })
         .then(res => res.json())

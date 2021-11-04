@@ -7,7 +7,7 @@ const ManageAllOrders = () => {
     const [isUpdated, setIsUpdated] = useState(null);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/products/orders')
+        fetch('https://protected-taiga-21434.herokuapp.com/products/orders')
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -17,7 +17,7 @@ const ManageAllOrders = () => {
     const handleCancel = id =>{
         const proceed = window.confirm('Are you sure to cancel the booking ?');
         if(proceed){
-            fetch(`http://localhost:5000/products/orders/${id}`,{
+            fetch(`https://protected-taiga-21434.herokuapp.com/products/orders/${id}`,{
             method:"DELETE",
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const ManageAllOrders = () => {
         }
     }
     const handleApproved = id =>{
-        fetch(`http://localhost:5000/products/myOrders/${id}`,{
+        fetch(`https://protected-taiga-21434.herokuapp.com/products/myOrders/${id}`,{
             method:"PUT",
             headers:{
                 'content-type': 'application/json'

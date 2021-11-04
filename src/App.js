@@ -26,18 +26,18 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
+          <Route exact path="/login">
+              <Login/>
+            </Route>
           <PrivateRoute path="/offering/:serviceId">
             <Offer></Offer>
+          </PrivateRoute>
+          <PrivateRoute path="/admin">
+            <AdminDashBoard></AdminDashBoard>
           </PrivateRoute>
           <Route path="/myOrders">
             <MyOrders></MyOrders>
           </Route>
-          <PrivateRoute path="/admin">
-            <AdminDashBoard></AdminDashBoard>
-          </PrivateRoute>
-          <Route exact path="/login">
-              <Login/>
-            </Route>
         </Switch>
         <Footer/>
       </Router>

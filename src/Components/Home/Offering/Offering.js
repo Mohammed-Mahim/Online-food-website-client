@@ -24,7 +24,7 @@ const Offering = () => {
                   <div className="services-img ">
                     <img className="w-100" src={pd?.img} alt="" />
                   </div>
-                  <h6>{pd?.name}</h6>
+                  <h4>{pd?.name}</h4>
                   <p>{pd?.des}</p>
                   <Link to={`/offering/${pd._id}`}>
                     <button className="btn btn-success">Buy Now</button>

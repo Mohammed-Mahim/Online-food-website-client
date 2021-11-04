@@ -29,13 +29,13 @@ function App() {
           <Route exact path="/login">
               <Login/>
             </Route>
-          <PrivateRoute path="/offering/:serviceId">
+          <PrivateRoute exact path="/offering/:serviceId">
             <Offer></Offer>
           </PrivateRoute>
-          <PrivateRoute path="/admin">
+          <PrivateRoute exact path="/admin">
             <AdminDashBoard></AdminDashBoard>
           </PrivateRoute>
-          <Route path="/myOrders">
+          <Route exact path="/myOrders">
             <MyOrders></MyOrders>
           </Route>
         </Switch>

@@ -7,11 +7,11 @@
 
 ##	You can create an account via Gmail or using your email.
 
-##	You can take mental health  service by login to this website.
+##	You can order food from this website if you want
 
-•	You can treat various type of therapy .
+##	You can treat various type of Food .
 
-•	give feedback to our facebook page -mentalhealth.facebook.com 
+##	give feedback to our facebook page -onlineFoodDelivery.facebook.com 
 
 
 # Getting Started with Create React App
